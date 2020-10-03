@@ -5,7 +5,6 @@ const cors = require('cors');
 const path = require('path');
 
 require('dotenv').config();
-app.use(cors());
 
 const {generateMessage, generateLocationMessage} = require('./utils/message');
 const { addUser,removeUser,getUser,getUsersInRoom,getAlluser} = require('./utils/users')
@@ -17,7 +16,8 @@ const app=express();
 const server =http.createServer(app);
 const io = socketio(server);
 
-//app.use(cors());
+
+app.use(cors());
 
 const publicDirectoryPath = path.join(__dirname,'build')
 
