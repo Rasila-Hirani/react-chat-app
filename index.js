@@ -11,7 +11,7 @@ const {addRoom,getAllRoom} = require('./utils/rooms')
 
 const message = require('./utils/message');
 
-
+console.log(process.env);
 
 const port = process.env.PORT || 3000;
 const app=express();
@@ -28,7 +28,7 @@ app.use(cors());
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
-  
+
 io.on('connection',(socket)=>{   
     console.log(`connection is established via id : ${socket.id}`)
 
