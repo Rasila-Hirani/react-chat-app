@@ -11,7 +11,7 @@ const {addRoom,getAllRoom} = require('./utils/rooms')
 
 const message = require('./utils/message');
 
-console.log(process.env);
+
 
 const port = process.env.PORT || 3000;
 const app=express();
