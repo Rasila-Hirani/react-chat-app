@@ -5,13 +5,12 @@ const cors = require('cors');
 const path = require('path');
 
 require('dotenv').config();
+app.use(cors());
+
 const {generateMessage, generateLocationMessage} = require('./utils/message');
 const { addUser,removeUser,getUser,getUsersInRoom,getAlluser} = require('./utils/users')
 const {addRoom,getAllRoom} = require('./utils/rooms')
-
 const message = require('./utils/message');
-
-
 
 const port = process.env.PORT || 3000;
 const app=express();
@@ -24,7 +23,7 @@ const publicDirectoryPath = path.join(__dirname,'build')
 
 //setup static directory to serve
 app.use(express.static(publicDirectoryPath))
-app.use(cors());
+
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
